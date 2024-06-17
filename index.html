@@ -1,0 +1,65 @@
+<!--
+File: index.html
+GUI Assignment: Using the JQuery Plugin with Dynamic Table
+Graham Laroche, graham_laroche@student.uml.edu
+6/13/2024
+A web page that uses a form to create a multiplication table.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Table</title>
+    <!-- style sheets -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href=
+        "https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/base/jquery-ui.css">
+</head>
+<body>
+    <header>
+        <h1>Multiplication Table</h1>
+        <p>
+            Enter in values in the form below to generate a multiplication table.<br>
+            Please only enter integer values. The maximum range of collumns and rows is 100. <br>
+            Values cannot be greater than 500 or less than -500.
+        </p>
+    </header>
+    <form class="cmxform" id="multForm" method="get">
+        <label for="minCol">Column minimum value:</label><br>
+        <div id="slider1" class="slider"></div>
+        <input type="text" id="minCol" class="numberInput" name="minCol" 
+            oninput="updateSlider('#slider1', '#minCol')"><br>
+        <label for="maxCol">Column maximum value:</label><br>
+        <div id="slider2" class="slider"></div>
+        <input type="text" id="maxCol" class="numberInput" name="maxCol" 
+            oninput="updateSlider('#slider2', '#maxCol')"><br>
+        <label for="minRow">Row minimum value:</label><br>
+        <div id="slider3" class="slider"></div>
+        <input type="text" id="minRow" class="numberInput" name="minRow" 
+            oninput="updateSlider('#slider3', '#minRow')"><br>
+        <label for="maxRow">Row maximum value:</label><br>
+        <div id="slider4" class="slider"></div>
+        <input type="text" id="maxRow" class="numberInput" name="maxRow" 
+            oninput="updateSlider('#slider4', '#maxRow')"><br>
+        <input type="button" onclick="saveTable()" id="saveButton" value="Save"><br>
+    </form>
+    <div id="checkContainer">
+        <ul id="checkList"></ul>
+        <input type="button" onclick="closeSelectedTabs()" id="deleteTabsButton" value="Delete Selected Tables">
+    </div>
+    <div id="tabs">
+        <ul id="tabList"></ul>
+    </div>
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script src=
+        "https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js">
+    </script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
